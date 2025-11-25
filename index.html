@@ -24,32 +24,9 @@
       href="assets/favicon/apple-touch-icon.png"
     />
   </head>
-  <body>
-    <header id="main-header">
-      <div class="container header-inner">
-        <a href="#" class="logo">
-          <img
-            src="assets/logo/이룰건축_로고(그린).png"
-            alt="이룰건축"
-            class="img-default"
-          />
 
-          <img
-            src="assets/logo/이룰건축_로고(화이트).png"
-            alt="이룰건축"
-            class="img-scrolled"
-          />
-        </a>
-        <nav>
-          <ul class="gnb">
-            <li><a href="#">회사소개</a></li>
-            <li><a href="#">제품소개</a></li>
-            <li><a href="#">건축문의</a></li>
-            <li><a href="#">갤러리</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+  <body class="page-home">
+    <div id="header-placeholder"></div>
 
     <!-- 메인 히어로 (캐러셀 적용) -->
     <section class="hero">
@@ -184,7 +161,7 @@
       </div>
     </section>
 
-    <footer>
+    <footer class="main-footer">
       <div class="footer-top">
         <div class="container footer-content">
           <h2 class="footer-title">Contact Us</h2>
@@ -206,17 +183,32 @@
     </footer>
 
     <script>
-      // --- 헤더 스크롤 효과 ---
-      window.addEventListener("scroll", function () {
-        const header = document.getElementById("main-header");
-        if (window.scrollY > 50) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
-        }
-      });
+      // 헤더 불러오기 & 스크롤 로직 통합
+      fetch("header/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          // 헤더 HTML 삽입
+          document.getElementById("header-placeholder").innerHTML = data;
 
-      // --- 히어로 섹션 슬라이더 ---
+          const header = document.getElementById("main-header");
+
+          // 바디 클래스 확인: 'page-sub'가 있는지 체크
+          if (document.body.classList.contains("page-sub")) {
+            // [서브 페이지인 경우] - 무조건 초록색 배경
+            header.classList.add("scrolled");
+          } else {
+            // [메인 페이지인 경우] - 스크롤 이벤트 연결
+            window.addEventListener("scroll", function () {
+              if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+              } else {
+                header.classList.remove("scrolled");
+              }
+            });
+          }
+        })
+        .catch((error) => console.error("헤더 로드 실패:", error));
+
       // --- 히어로 섹션 슬라이더 ---
       const slides = document.querySelectorAll(".hero-slide");
       const indicator = document.querySelector(".slider-indicator");
@@ -224,16 +216,12 @@
       const slideCount = slides.length;
       const slideIntervalTime = 4000;
 
-      // [추가된 부분] 슬라이드 개수에 맞춰 인디케이터 길이를 자동으로 조절
-      // CSS에서 width: calc(150px / 3) 했던 것을 JS로 처리하면 나중에 이미지가 늘어나도 수정할 필요가 없습니다.
       indicator.style.width = `${100 / slideCount}%`;
 
       function showSlide(index) {
         slides.forEach((slide) => slide.classList.remove("active"));
         slides[index].classList.add("active");
 
-        // [수정된 부분]
-        // 인디케이터 자신의 너비(100%) x 인덱스 만큼 이동하면 정확히 해당 칸으로 갑니다.
         const moveX = index * 100;
         indicator.style.transform = `translateX(${moveX}%)`;
       }

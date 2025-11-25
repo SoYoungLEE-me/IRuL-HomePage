@@ -1,0 +1,124 @@
+.about-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+
+  background-image: url("../assets/images/background/회사소개.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.about-content {
+  max-width: 800px;
+  padding-bottom: 50px;
+  margin-top: 150px;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+
+.about-title .highlight {
+  color: var(--accent-yellow);
+}
+
+.about-desc p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
+}
+
+.about-desc strong {
+  font-weight: 700;
+  color: #fff;
+}
+
+.about-footer {
+  position: relative; /* absolute 제거 */
+  width: 100%;
+  padding: 40px 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+.af-info {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* 모바일에서 줄바꿈 되도록 */
+  gap: 15px;
+}
+
+.af-info span {
+  position: relative;
+}
+
+.af-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.af-links a {
+  color: #fff;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.af-links a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* --- 반응형 (모바일) --- */
+@media (max-width: 768px) {
+  .about-hero {
+    background-size: auto;
+    background-position: 60% 40%;
+  }
+
+  .about-content {
+    margin-top: 190px;
+  }
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-desc p {
+    font-size: 0.95rem;
+    br {
+      display: none;
+    }
+  }
+
+  .about-footer {
+    padding: 30px 0;
+    margin-top: 50px;
+  }
+
+  .af-info {
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 20px;
+  }
+
+  .af-links {
+    gap: 20px;
+  }
+}
