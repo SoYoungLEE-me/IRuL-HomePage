@@ -233,7 +233,8 @@ header.scrolled .logo .img-scrolled {
 
 /* --- 프로세스 섹션 --- */
 .process {
-  padding: 100px 0;
+  padding-top: 100px;
+  padding-bottom: 0;
 }
 
 .section-header {
@@ -301,53 +302,130 @@ header.scrolled .logo .img-scrolled {
 
 /* --- 제품 소개 섹션 --- */
 .product {
-  padding: 120px 0;
-  background: #fff;
-  background-image: linear-gradient(#eee 1px, transparent 1px),
-    linear-gradient(90deg, #eee 1px, transparent 1px);
-  background-size: 40px 40px;
+  padding: 180px 0;
+  background-color: #fff;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("assets/images/background/건축배경.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .product-container {
   display: flex;
   align-items: center;
+  width: 100%; /* 화면 전체 너비 사용 */
   gap: 50px;
 }
 
 .product-images {
-  flex: 1.5;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  grid-template-rows: 200px 200px;
-  gap: 15px;
-}
+  /* 화면의 약 60% 정도를 차지하도록 설정 (조절 가능) */
+  flex: 0 0 60%;
+  display: flex;
+  gap: 20px;
+  height: 500px;
 
-.p-img-1 {
-  grid-row: 1 / 3;
-}
-.p-img-2 {
-  grid-column: 2;
-}
-.p-img-3 {
-  grid-column: 2;
+  /* ★핵심: 왼쪽으로 강제로 당겨서 첫 번째 이미지를 화면 밖으로 자름 */
+  margin-left: -12%;
 }
 
 .product-images img {
-  border-radius: 5px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  width: 0;
+  /* 요청하신 비율 유지 */
+  aspect-ratio: 527 / 628;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
+.product-images img:hover {
+  transform: translateY(-10px);
+}
+
+/* --- 제품 소개 섹션 --- */
+.product {
+  padding: 180px 0;
+  background-color: #fff;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("assets/images/background/건축배경.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* 가로 스크롤 방지 (필수) */
+  overflow-x: hidden;
+}
+
+.product-container {
+  display: flex;
+  align-items: center;
+  width: 100%; /* 화면 전체 너비 사용 */
+  gap: 60px; /* 이미지와 텍스트 사이 간격 */
+}
+
+/* --- 이미지 영역 설정 --- */
+.product-images {
+  flex: 0 0 80%;
+  display: flex;
+  gap: 40px;
+  height: 628;
+  margin-left: -15%;
+}
+
+.product-images img {
+  flex: 1;
+  width: 0;
+  /* 요청하신 비율 유지 */
+  aspect-ratio: 527.38 / 628;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* --- 텍스트 영역 설정 --- */
 .product-text {
   flex: 1;
+  padding-right: calc((100vw - 1280px) / 2 + 20px);
+  padding-left: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1320px) {
+  .product-text {
+    padding-right: 40px; /* 1280px 이하에서는 그냥 40px 여백 */
+  }
 }
 
 .link-heading {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--primary-green);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--dark-green);
   margin-bottom: 20px;
   display: inline-block;
   cursor: pointer;
+}
+
+.link-heading::after {
+  content: ">";
+  font-size: 1.5rem;
+  margin-left: 10px;
+  transition: margin-left 0.3s;
+  display: inline-block;
+}
+
+.link-heading:hover::after {
+  margin-left: 15px;
 }
 
 .link-heading:hover {
@@ -355,9 +433,10 @@ header.scrolled .logo .img-scrolled {
 }
 
 .product-desc {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #555;
   line-height: 1.8;
+  word-break: keep-all;
 }
 
 /* --- CTA 섹션 --- */
@@ -382,6 +461,7 @@ header.scrolled .logo .img-scrolled {
   padding: 50px;
   color: #fff;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .cta-box:hover {
@@ -395,17 +475,17 @@ header.scrolled .logo .img-scrolled {
       rgba(107, 142, 35, 0.85),
       rgba(107, 142, 35, 0.4)
     ),
-    url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800");
-  background-size: cover;
-  background-position: center;
+    url("assets/images/mainCTA/견적문의.png");
+  background-size: 150%;
+  background-position: 60% 90%;
 }
 
 /* 오른쪽 배경: 현장 */
 .cta-right {
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
-    url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800");
-  background-size: cover;
-  background-position: center;
+    url("assets/images/mainCTA/시공현장.png");
+  background-size: 100%;
+  background-position: 60% 90%;
 }
 
 .cta-box h3 {
@@ -433,48 +513,62 @@ header.scrolled .logo .img-scrolled {
 
 /* --- 푸터 --- */
 footer {
-  position: relative;
-  background: url("https://images.unsplash.com/photo-1448375240586-dfd8f3793300?auto=format&fit=crop&q=80&w=1200")
-    no-repeat center/cover;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  height: 400px;
+  margin-top: 80px;
+}
+
+/* Contact Us */
+.footer-top {
+  width: 100%;
+  background: url("assets/images/contactUs.png") no-repeat center/cover;
+  padding: 60px 0;
+
+  text-align: center;
   color: #fff;
 }
 
-.footer-overlay {
-  background: rgba(0, 0, 0, 0.8);
-  padding: 80px 0 60px;
-}
-
-.footer-content {
-  text-align: center;
-}
-
 .footer-title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .footer-info p {
-  margin-bottom: 10px;
-  color: #ccc;
-  font-size: 0.95rem;
+  margin-bottom: 8px;
+  color: #ddd;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
+/* 초록색 바 영역 */
 .footer-bottom {
   background-color: var(--dark-green);
-  padding: 20px 0;
-  font-size: 0.9rem;
+  padding: 30px 0;
+  color: #fff;
 }
 
 .footer-links {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 60px;
+}
+
+.footer-links a {
+  font-size: 1rem;
+  color: #fff;
+  opacity: 0.9;
+  transition: opacity 0.3s;
 }
 
 .footer-links a:hover {
-  color: var(--accent-yellow);
+  opacity: 1;
+  text-decoration: underline;
+  color: var(--accent-yellow); /* 호버 시 포인트 컬러 */
 }
 
 /* --- 애니메이션 --- */
@@ -503,14 +597,29 @@ footer {
   .hero-title {
     font-size: 2.8rem;
   }
+
   .process-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
   .product-container {
     flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
   }
+
   .product-images {
+    flex: none;
     width: 100%;
+    margin-left: 0;
+    padding: 0 20px;
+    height: auto;
+    gap: 15px;
+  }
+
+  .product-text {
+    width: 100%;
+    padding: 0 50px;
   }
 }
 
@@ -534,19 +643,25 @@ footer {
   .cta-grid {
     grid-template-columns: 1fr;
   }
-  .product-images {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-  .p-img-1,
-  .p-img-2,
-  .p-img-3 {
-    grid-column: auto;
-    grid-row: auto;
-    height: 250px;
-  }
   .hero {
     height: 80vh;
     padding-bottom: 80px;
+  }
+  .product {
+    padding: 120px 0;
+  }
+
+  .footer-top {
+    padding: 80px 0;
+  }
+
+  .footer-title {
+    font-size: 2rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
   }
 }
