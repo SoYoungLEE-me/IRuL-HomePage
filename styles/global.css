@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "Freesentation";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/Freesentation.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --ir-primary-green: #d6dbbc;
+  --ir-dark-green: #5d7717;
+  --ir-accent-yellow: #e4ea72;
+  --ir-bg-beige: #f0f2e6;
+  --ir-text-dark: #333;
+  --ir-text-light: #fff;
+  --ir-font-main: "Freesentation", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ir-font-main);
+  color: var(--ir-text-dark);
+  line-height: 1.6;
+  word-break: keep-all;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ir-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.ir-section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.ir-section-header h2 {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.ir-highlight {
+  color: var(--ir-accent-yellow);
+}
+
+.ir-text-green {
+  color: var(--ir-dark-green);
+}

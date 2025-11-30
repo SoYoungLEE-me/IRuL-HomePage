@@ -6,85 +6,99 @@
     <title>회사소개</title>
     <link rel="stylesheet" href="../styles/about.css" />
   </head>
-  <body class="page-home"></body>
-  <div id="header-placeholder"></div>
-  <section class="about-hero">
-    <div class="container">
-      <div class="about-content">
-        <h1 class="about-title">
-          집 그 이상의 가치, <span class="highlight">삶</span>을 짓습니다.
-        </h1>
+  <body class="page-home page-transparent-footer">
+    <!-- Header -->
+    <div id="header-placeholder"></div>
 
-        <div class="about-desc">
-          <p>
-            이룰건축은 디자인, 설계, 시공 분야에서 30년 이상의 경력과
-            경험으로<br />
-            <strong>집은 단순한 공간이 아니다</strong>라는 신념으로
-            시작되었습니다.
-          </p>
-          <p>
-            저희는 변화하는 지구의 기후와 환경, 안전을 고려한 건축을 통해
-            고객<br />
-            한 분 한 분의 개성과 가치를 담아내며, 진화하는 주거 문화를
-            제안합니다.<br />
-            절제 속의 아름다움과 세련된 품격을 추구하며, 설계와 시공 전
-            과정에서<br />
-            품질과 안전을 최우선으로 실현하고 있습니다.
-          </p>
-          <p>
-            (주)이룰건축은 더 나은 주거 환경을 위해 끊임없는 연구와 개발을
-            이어가<br />
-            며, 시대가 요구하는 주거 환경을 고객과 함께 만들어가는 기업이 될
-            것을<br />
-            약속드립니다.
-          </p>
+    <section class="about-hero">
+      <div class="ir-container">
+        <div class="about-content">
+          <h1 class="about-title">
+            집 그 이상의 가치, <span class="ir-highlight">삶</span>을 짓습니다.
+          </h1>
+
+          <div class="about-desc">
+            <p>
+              이룰건축은 디자인, 설계, 시공 분야에서 30년 이상의 경력과 경험으로
+              <strong>집은 단순한 공간이 아니다</strong>라는 신념으로
+              시작되었습니다.
+            </p>
+            <p>
+              저희는 변화하는 기후와 안전을 고려한 건축을 통해 고객 한 분 한
+              분의 개성과 가치를 담아내며 진화하는 주거 문화를 제안합니다.<br />
+              절제 속의 아름다움과 세련된 품격을 추구하며, 설계와 시공 전
+              과정에서 품질과 안전을 최우선으로 실현하고 있습니다.
+            </p>
+            <p>
+              (주)이룰건축은 더 나은 주거 환경을 위해 끊임없는 연구와 개발을
+              이어가며, 시대가 요구하는 주거 환경을 고객과 함께 만들어가는
+              기업이 될 것을 약속드립니다.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+      <div id="footer-placeholder"></div>
+    </section>
 
-    <footer class="about-footer">
-      <div class="container">
-        <div class="af-info">
-          <span
-            >(주)이룰건축 | 경기 용인시 처인구 모현읍 외개일로 171번길 26</span
-          >
-          <span>대표 | 031-526-2001</span>
-          <span>문의/상담 | 010-2740-8854</span>
-          <span>상담 가능 시간 평일 9:00~17:00</span>
-        </div>
-        <div class="af-links">
-          <a href="#">인스타그램 바로가기</a>
-          <a href="#">유튜브채널 바로가기</a>
-          <a href="#">E. must@irul.kr</a>
-        </div>
-      </div>
-    </footer>
-  </section>
-  <script>
-    // 헤더 불러오기 & 스크롤 로직 통합
-    fetch("../header/header.html")
-      .then((response) => response.text())
-      .then((data) => {
-        // 헤더 HTML 삽입
-        document.getElementById("header-placeholder").innerHTML = data;
+    <script>
+      // Header include
+      fetch("../components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          // 헤더 HTML 삽입
+          document.getElementById("header-placeholder").innerHTML = data;
 
-        const header = document.getElementById("main-header");
+          const header = document.getElementById("main-header");
 
-        // 바디 클래스 확인: 'page-sub'가 있는지 체크
-        if (document.body.classList.contains("page-sub")) {
-          // [서브 페이지인 경우] - 무조건 초록색 배경
-          header.classList.add("scrolled");
-        } else {
-          // [메인 페이지인 경우] - 스크롤 이벤트 연결
-          window.addEventListener("scroll", function () {
-            if (window.scrollY > 50) {
-              header.classList.add("scrolled");
-            } else {
-              header.classList.remove("scrolled");
-            }
-          });
-        }
-      })
-      .catch((error) => console.error("헤더 로드 실패:", error));
-  </script>
+          // 바디 클래스 확인: 'page-sub'가 있는지 체크
+          if (document.body.classList.contains("page-sub")) {
+            // [서브 페이지인 경우] - 무조건 초록색 배경
+            header.classList.add("scrolled");
+          } else {
+            // [메인 페이지인 경우] - 스크롤 이벤트 연결
+            window.addEventListener("scroll", function () {
+              if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+              } else {
+                header.classList.remove("scrolled");
+              }
+            });
+          }
+        })
+        .catch((error) => console.error("헤더 로드 실패:", error));
+    </script>
+
+    <script>
+      fetch("../components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          // 헤더 삽입
+          document.getElementById("header-placeholder").innerHTML = data;
+
+          const header = document.getElementById("ir-header");
+
+          // 페이지 타입 확인
+          if (document.body.classList.contains("page-sub")) {
+            header.classList.add("ir-scrolled");
+          } else {
+            window.addEventListener("scroll", () => {
+              if (window.scrollY > 50) {
+                header.classList.add("ir-scrolled");
+              } else {
+                header.classList.remove("ir-scrolled");
+              }
+            });
+          }
+        })
+        .catch((error) => console.error("헤더 로드 실패:", error));
+
+      //footer include
+      fetch("/components/footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer-placeholder").innerHTML = html;
+        })
+        .catch((e) => console.error("푸터 로드 실패:", e));
+    </script>
+  </body>
 </html>

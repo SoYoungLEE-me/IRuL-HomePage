@@ -1,0 +1,80 @@
+#ir-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  transition: all 0.4s ease;
+  z-index: 1000;
+  background-color: transparent;
+}
+
+.ir-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ir-logo img {
+  height: 40px;
+  width: auto;
+}
+
+.ir-logo .img-default {
+  display: block;
+}
+.ir-logo .img-scrolled {
+  display: none;
+}
+
+/* 스크롤 시 헤더 스타일 */
+#ir-header.ir-scrolled {
+  background-color: var(--ir-dark-green);
+  padding: 15px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#ir-header.ir-scrolled .ir-logo .img-default {
+  display: none;
+}
+
+#ir-header.ir-scrolled .ir-logo .img-scrolled {
+  display: block;
+}
+
+.ir-gnb {
+  display: flex;
+  gap: 40px;
+}
+
+.ir-gnb a {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+}
+
+.ir-gnb a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--ir-accent-yellow);
+  transition: width 0.3s;
+}
+
+.ir-gnb a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .ir-header-inner {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .ir-gnb {
+    gap: 20px;
+  }
+}
