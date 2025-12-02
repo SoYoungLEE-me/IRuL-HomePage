@@ -388,6 +388,7 @@
   .home-footer-links {
     flex-direction: column;
     gap: 16px;
+    align-items: center;
   }
 
   .home-cta {

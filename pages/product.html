@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제품소개</title>
+    <link rel="stylesheet" href="/styles/product.css" />
+  </head>
+
+  <body class="page-sub page-gray-footer">
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- HERO SECTION (Tabs) -->
+    <section class="product-hero">
+      <div class="product-hero-bg"></div>
+
+      <div class="ir-container">
+        <div class="product-tab-container">
+          <div class="product-tab-list" id="tab-list">
+            <!-- JS로 탭 생성됨 -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAIL SECTION -->
+    <section class="product-detail">
+      <div class="ir-container">
+        <div class="product-content-grid">
+          <!-- LEFT COLUMN: Title & Images -->
+          <div class="product-left-col">
+            <div class="product-title-group">
+              <h2 id="p-title">Series 4 - 4평형 모듈러 주택</h2>
+            </div>
+
+            <div class="product-slider-wrapper">
+              <div class="product-slider-frame">
+                <img id="p-main-img" src="" alt="제품 이미지" />
+              </div>
+
+              <!-- 인디케이터 (이미지 2장 이상일 때만 보임) -->
+              <div id="p-indicators" class="product-indicators"></div>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Specs -->
+          <div class="product-right-col">
+            <div id="p-spec-list" class="spec-grid">
+              <!-- JS로 스펙 리스트 생성 -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="footer-placeholder"></div>
+    <!-- SCRIPT -->
+    <script>
+      /* --- 데이터 정의 --- */
+      const products = [
+        {
+          id: "series4",
+          tabName: "Series 4",
+          thumb: "https://placehold.co/160x80/555/FFF?text=Series+4",
+          title: "Series 4 - 4평형 모듈러 주택",
+          images: [
+            "https://placehold.co/800x500/d6dbbc/333?text=Series+4+Main+View",
+            "https://placehold.co/800x500/eee/333?text=Series+4+Floor+Plan",
+          ],
+          specs: [
+            { label: "규격", value: "3,850mm(W) x 3,440mm(D) x 3,510mm(H)" },
+            { label: "총면적", value: "4평 (00m²)" },
+            { label: "구성", value: "욕실, 주방, 다용도실" },
+            {
+              label: "골조",
+              value:
+                "철골(찬넬) 200x90x8x3.5<br>아연각관(단열바-폴리아미드 공법 적용)",
+            },
+            { label: "단열재", value: "OIL-BASED RIGID POLYURETHANE FOAM" },
+            {
+              label: "외장재",
+              value: "PHOMI STONE, METALSIDING, GLASS,<br>RECLAIMED BRICK",
+            },
+            { label: "내장재", value: "실크벽지 도배, 필름, 포미스톤" },
+            {
+              label: "지붕재",
+              value: "PIR URETHANE PANEL, EPS PANEL,<br>솔라루프 강판",
+            },
+            { label: "창호", value: "독일식 창호" },
+            { label: "옵션", value: "태양광, 다락방" },
+          ],
+        },
+        {
+          id: "series6",
+          tabName: "Series 6",
+          thumb: "https://placehold.co/160x80/555/FFF?text=Series+6",
+          title: "Series 6 - 6평형 모듈러 주택",
+          images: [
+            "https://placehold.co/800x500/e4ea72/333?text=Series+6+Perspective",
+          ],
+          specs: [
+            { label: "규격", value: "6,360mm(W) x 3,440mm(D) x 3,510mm(H)" },
+            { label: "총면적", value: "6평 (19.8m²)" },
+            { label: "구성", value: "욕실, 주방, 다용도실" },
+            { label: "골조", value: "철골(찬넬) 200x90x8x3.5" },
+            { label: "단열재", value: "OIL-BASED RIGID POLYURETHANE FOAM" },
+            { label: "내장재", value: "실크벽지 도배, 필름, 포미스톤" },
+            { label: "옵션", value: "태양광, 다락방" },
+          ],
+        },
+        {
+          id: "masterX",
+          tabName: "Master Series X",
+          thumb: "https://placehold.co/160x80/555/FFF?text=Master+X",
+          title: "Master Series X - 10평형 모듈러 주택",
+          images: [
+            "https://placehold.co/800x500/5d7717/fff?text=Master+X+View",
+          ],
+          specs: [
+            { label: "규격", value: "9,000mm(W) x 4,600mm(D) x 3,500mm(H)" },
+            { label: "총면적", value: "10평 / 12.3평" },
+            { label: "구조", value: "찬넬 200x80x7.5x11" },
+            { label: "외벽", value: "천연대리석, 세라믹타일, 메탈사이딩" },
+            { label: "창호", value: "유럽식프리미엄 고성능시스템창호" },
+            { label: "조명", value: "LED마그네틱조명, LED라인조명" },
+          ],
+        },
+        {
+          id: "masterXplus",
+          tabName: "Master Series X\nPlus",
+          thumb: "https://placehold.co/160x80/555/FFF?text=Master+X+",
+          title: "Master Series X Plus - 10평 다락형",
+          images: [
+            "https://placehold.co/800x500/333/fff?text=Master+X+Plus+Main",
+            "https://placehold.co/800x500/ddd/333?text=Blueprint+View",
+          ],
+          specs: [
+            { label: "규격", value: "9,000mm(W) x 4,600mm(D) x 3,950mm(H)" },
+            { label: "총면적", value: "10평 / 15평 (1층 41m² + 다락 9m²)" },
+            { label: "구조", value: "경량철골조(열교차단 폴리아미드 공법)" },
+            { label: "옵션", value: "인조석(LG HIMACS)" },
+            { label: "가구", value: "신발장, 붙박이장" },
+          ],
+        },
+        {
+          id: "extended",
+          tabName: "Modular House\nExtended",
+          thumb: "https://placehold.co/160x80/555/FFF?text=Extended",
+          title: "Modular House Extended - 32평형",
+          images: [
+            "https://placehold.co/800x500/666/fff?text=Extended+Main",
+            "https://placehold.co/800x500/ccc/333?text=Extended+Plan",
+          ],
+          specs: [
+            { label: "규격", value: "12,000mm(W) x 4,600mm(D) x 5,550mm(H)" },
+            { label: "총면적", value: "32평형 (실면적)" },
+            { label: "구조", value: "2층 구조 및 확장형 모듈" },
+            {
+              label: "구성",
+              value: "방2, 거실2, 주방, 욕실+화장실, 현관, 테라스",
+            },
+          ],
+        },
+      ];
+
+      /* --- 로직 --- */
+      let currentProductIdx = 0;
+      let currentImgIdx = 0;
+
+      const tabListEl = document.getElementById("tab-list");
+      const titleEl = document.getElementById("p-title");
+      const imgEl = document.getElementById("p-main-img");
+      const indicatorEl = document.getElementById("p-indicators");
+      const specListEl = document.getElementById("p-spec-list");
+
+      // 1. 초기 탭 메뉴 생성
+      function initTabs() {
+        tabListEl.innerHTML = "";
+        products.forEach((p, idx) => {
+          const btn = document.createElement("button");
+          btn.className = "product-tab-item";
+          if (idx === 0) btn.classList.add("active");
+
+          // 줄바꿈 문자(\n) 처리
+          const nameHtml = p.tabName.replace(/\n/g, "<br>");
+
+          btn.innerHTML = `
+            <span class="tab-text">${nameHtml}</span>
+            <div class="tab-line"></div>
+            <div class="tab-thumb">
+              <img src="${p.thumb}" alt="${p.tabName}">
+            </div>
+          `;
+
+          btn.addEventListener("click", () => {
+            currentProductIdx = idx;
+            renderProduct(idx);
+
+            // 탭 활성화 UI 업데이트
+            document
+              .querySelectorAll(".product-tab-item")
+              .forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+          });
+
+          tabListEl.appendChild(btn);
+        });
+      }
+
+      // 2. 제품 상세 정보 렌더링
+      function renderProduct(idx) {
+        const p = products[idx];
+        currentImgIdx = 0; // 이미지 초기화
+
+        // 타이틀
+        titleEl.textContent = p.title;
+
+        // 이미지
+        updateImage();
+
+        // 인디케이터 (이미지가 2장 이상일 때만)
+        renderIndicators(p.images);
+
+        // 스펙 리스트
+        specListEl.innerHTML = "";
+        p.specs.forEach((spec) => {
+          const row = document.createElement("div");
+          row.className = "spec-row";
+          row.innerHTML = `
+            <div class="spec-label">${spec.label}</div>
+            <div class="spec-value">${spec.value}</div>
+          `;
+          specListEl.appendChild(row);
+        });
+      }
+
+      // 3. 이미지 업데이트 함수
+      function updateImage() {
+        const p = products[currentProductIdx];
+        if (p.images.length > 0) {
+          imgEl.src = p.images[currentImgIdx];
+        } else {
+          imgEl.src = ""; // 이미지 없을 때 처리
+        }
+
+        // 인디케이터 활성화 상태 동기화
+        const dots = document.querySelectorAll(".p-dot");
+        dots.forEach((dot, i) => {
+          if (i === currentImgIdx) {
+            dot.classList.add("active");
+            dot.style.backgroundColor = "#555";
+          } else {
+            dot.classList.remove("active");
+            dot.style.backgroundColor = "#ddd";
+          }
+        });
+      }
+
+      // 4. 인디케이터 생성
+      function renderIndicators(images) {
+        indicatorEl.innerHTML = "";
+
+        // 이미지가 2장 이상일 때만 인디케이터 생성
+        if (images.length > 1) {
+          images.forEach((_, i) => {
+            const dot = document.createElement("div");
+            dot.className = "p-dot";
+            // 첫 번째 점 활성화
+            if (i === 0) dot.classList.add("active");
+
+            dot.addEventListener("click", () => {
+              currentImgIdx = i;
+              updateImage();
+            });
+            indicatorEl.appendChild(dot);
+          });
+        }
+      }
+
+      // 실행
+      initTabs();
+      renderProduct(0);
+    </script>
+
+    <script>
+      // Header include
+      fetch("/components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          // 헤더 삽입
+          document.getElementById("header-placeholder").innerHTML = data;
+
+          const header = document.getElementById("ir-header");
+
+          // 페이지 타입 확인
+          if (document.body.classList.contains("page-sub")) {
+            header.classList.add("ir-scrolled");
+          } else {
+            window.addEventListener("scroll", () => {
+              if (window.scrollY > 50) {
+                header.classList.add("ir-scrolled");
+              } else {
+                header.classList.remove("ir-scrolled");
+              }
+            });
+          }
+        })
+        .catch((error) => console.error("헤더 로드 실패:", error));
+
+      //footer include
+      fetch("/components/footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer-placeholder").innerHTML = html;
+        })
+        .catch((e) => console.error("푸터 로드 실패:", e));
+    </script>
+  </body>
+</html>

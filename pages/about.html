@@ -42,34 +42,8 @@
 
     <script>
       // Header include
-      fetch("../components/header.html")
-        .then((response) => response.text())
-        .then((data) => {
-          // 헤더 HTML 삽입
-          document.getElementById("header-placeholder").innerHTML = data;
-
-          const header = document.getElementById("main-header");
-
-          // 바디 클래스 확인: 'page-sub'가 있는지 체크
-          if (document.body.classList.contains("page-sub")) {
-            // [서브 페이지인 경우] - 무조건 초록색 배경
-            header.classList.add("scrolled");
-          } else {
-            // [메인 페이지인 경우] - 스크롤 이벤트 연결
-            window.addEventListener("scroll", function () {
-              if (window.scrollY > 50) {
-                header.classList.add("scrolled");
-              } else {
-                header.classList.remove("scrolled");
-              }
-            });
-          }
-        })
-        .catch((error) => console.error("헤더 로드 실패:", error));
-    </script>
-
-    <script>
-      fetch("../components/header.html")
+      // Header include
+      fetch("/components/header.html")
         .then((response) => response.text())
         .then((data) => {
           // 헤더 삽입
