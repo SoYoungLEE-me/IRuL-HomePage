@@ -56,35 +56,32 @@
     <div id="footer-placeholder"></div>
     <!-- SCRIPT -->
     <script>
-      /* --- 데이터 정의 --- */
+      /* -- 제품 데이터 -- */
       const products = [
         {
           id: "series4",
           tabName: "Series 4",
-          thumb: "https://placehold.co/160x80/555/FFF?text=Series+4",
+          thumb: "/assets/images/product2/hero/Series4.png",
           title: "Series 4 - 4평형 모듈러 주택",
-          images: [
-            "https://placehold.co/800x500/d6dbbc/333?text=Series+4+Main+View",
-            "https://placehold.co/800x500/eee/333?text=Series+4+Floor+Plan",
-          ],
+          images: [],
           specs: [
             { label: "규격", value: "3,850mm(W) x 3,440mm(D) x 3,510mm(H)" },
             { label: "총면적", value: "4평 (00m²)" },
             { label: "구성", value: "욕실, 주방, 다용도실" },
             {
-              label: "골조",
+              label: "골재",
               value:
-                "철골(찬넬) 200x90x8x3.5<br>아연각관(단열바-폴리아미드 공법 적용)",
+                "철골(찬넬) 200 x 90 x 8 x 3.5<br>아연각관(단열바-폴리아미드 공법 적용)",
             },
             { label: "단열재", value: "OIL-BASED RIGID POLYURETHANE FOAM" },
             {
               label: "외장재",
-              value: "PHOMI STONE, METALSIDING, GLASS,<br>RECLAIMED BRICK",
+              value: "PHOMI STONE, MATALSIDING, GLASS, <br>RECLAIMED BRICK",
             },
             { label: "내장재", value: "실크벽지 도배, 필름, 포미스톤" },
             {
               label: "지붕재",
-              value: "PIR URETHANE PANEL, EPS PANEL,<br>솔라루프 강판",
+              value: "PIR URETHANE PANEL,EPS PANEL, <br>솔라루프 강판",
             },
             { label: "창호", value: "독일식 창호" },
             { label: "옵션", value: "태양광, 다락방" },
@@ -93,71 +90,164 @@
         {
           id: "series6",
           tabName: "Series 6",
-          thumb: "https://placehold.co/160x80/555/FFF?text=Series+6",
+          thumb: "/assets/images/product2/hero/Series6.png",
           title: "Series 6 - 6평형 모듈러 주택",
-          images: [
-            "https://placehold.co/800x500/e4ea72/333?text=Series+6+Perspective",
-          ],
+          images: [],
           specs: [
             { label: "규격", value: "6,360mm(W) x 3,440mm(D) x 3,510mm(H)" },
             { label: "총면적", value: "6평 (19.8m²)" },
             { label: "구성", value: "욕실, 주방, 다용도실" },
-            { label: "골조", value: "철골(찬넬) 200x90x8x3.5" },
+            {
+              label: "골재",
+              value:
+                "철골(찬넬) 200 x 90 x 8 x 3.5<br>아연각관(단열바-폴리아미드 공법 적용)",
+            },
             { label: "단열재", value: "OIL-BASED RIGID POLYURETHANE FOAM" },
+            {
+              label: "외장재",
+              value: "PHOMI STONE, MATALSIDING, GLASS, <br>RECLAIMED BRICK",
+            },
             { label: "내장재", value: "실크벽지 도배, 필름, 포미스톤" },
+            {
+              label: "지붕재",
+              value: "PIR URETHANE PANEL,EPS PANEL, <br>솔라루프 강판",
+            },
+            { label: "창호", value: "독일식 창호" },
             { label: "옵션", value: "태양광, 다락방" },
           ],
         },
         {
           id: "masterX",
           tabName: "Master Series X",
-          thumb: "https://placehold.co/160x80/555/FFF?text=Master+X",
-          title: "Master Series X - 10평형 모듈러 주택",
-          images: [
-            "https://placehold.co/800x500/5d7717/fff?text=Master+X+View",
-          ],
+          thumb: "/assets/images/product2/hero/SeriesX.png",
+          title: "Master Series X -10평형 모듈러 주택",
+          images: ["/assets/images/product2/detail/SeriesX_detail.png"],
           specs: [
             { label: "규격", value: "9,000mm(W) x 4,600mm(D) x 3,500mm(H)" },
-            { label: "총면적", value: "10평 / 12.3평" },
-            { label: "구조", value: "찬넬 200x80x7.5x11" },
-            { label: "외벽", value: "천연대리석, 세라믹타일, 메탈사이딩" },
-            { label: "창호", value: "유럽식프리미엄 고성능시스템창호" },
-            { label: "조명", value: "LED마그네틱조명, LED라인조명" },
+            {
+              label: "총면적",
+              value: "10평/12.3평 (실내30㎠ + 현관, 데크 11㎡)",
+            },
+            {
+              label: "구조",
+              value:
+                "찬넬 200 x 80 x 7.5 x 11 <br> + 경량철골조(열교차단 폴리아미드 공법 적용)",
+            },
+            {
+              label: "외벽",
+              value: "천연대리석, 세라믹타일, 메탈사이딩, 합성데크",
+            },
+            {
+              label: "인테리어",
+              value: "PHOMI STONE, 천혜토, 동경, 실크벽지, LG필름",
+            },
+            {
+              label: "난방",
+              value: "AL 블럭트레이 온순난방, 귀뚜라미 전기보일러",
+            },
+            { label: "단열", value: "PLR 우레탄페널 + 수성경질우레탄폼" },
+            {
+              label: "창호",
+              value: "유럽식프리미엄 고성능시스템창호-로이 3중 유리",
+            },
+            {
+              label: "조명",
+              value: "LED마그네틱조명, LED라인조명",
+            },
+            { label: "가구", value: "신발장, 북박이장" },
           ],
         },
         {
           id: "masterXplus",
           tabName: "Master Series X\nPlus",
-          thumb: "https://placehold.co/160x80/555/FFF?text=Master+X+",
-          title: "Master Series X Plus - 10평 다락형",
+          thumb: "/assets/images/product2/hero/SeriesXPlus.png",
+          title: "Master Series X Plus -10평 다락형 모듈러 주택",
           images: [
-            "https://placehold.co/800x500/333/fff?text=Master+X+Plus+Main",
-            "https://placehold.co/800x500/ddd/333?text=Blueprint+View",
+            "/assets/images/product2/detail/XPlus_detail1.png",
+            "/assets/images/product2/detail/XPlus_detail2.png",
           ],
           specs: [
             { label: "규격", value: "9,000mm(W) x 4,600mm(D) x 3,950mm(H)" },
-            { label: "총면적", value: "10평 / 15평 (1층 41m² + 다락 9m²)" },
-            { label: "구조", value: "경량철골조(열교차단 폴리아미드 공법)" },
-            { label: "옵션", value: "인조석(LG HIMACS)" },
-            { label: "가구", value: "신발장, 붙박이장" },
+            {
+              label: "총면적",
+              value: "10평/15평 (1층 41㎡+다락 9㎡)",
+            },
+            {
+              label: "구조",
+              value:
+                "찬넬 200 x 80 x 7.5 x 11 <br> + 경량철골조(열교차단 폴리아미드 공법 적용)",
+            },
+            {
+              label: "외벽",
+              value: "천연대리석, 세라믹타일, 메탈사이딩, 합성데크",
+            },
+            {
+              label: "인테리어",
+              value: "PHOMI STONE, 천혜토, 동경, 실크벽지, LG필름",
+            },
+            {
+              label: "난방",
+              value: "AL 블럭트레이 온순난방, 귀뚜라미 전기보일러",
+            },
+            { label: "단열", value: "PLR 우레탄페널 + 수성경질우레탄폼" },
+            {
+              label: "창호",
+              value: "유럽식프리미엄 고성능시스템창호-로이 3중 유리",
+            },
+            {
+              label: "조명",
+              value: "LED마그네틱조명, LED라인조명",
+            },
+            { label: "문선/<br>바닥몰딩", value: "인조석(LG HIMACS)" },
+            { label: "가구", value: "신발장, 북박이장" },
           ],
         },
         {
           id: "extended",
           tabName: "Modular House\nExtended",
-          thumb: "https://placehold.co/160x80/555/FFF?text=Extended",
-          title: "Modular House Extended - 32평형",
+          thumb: "/assets/images/product2/hero/Extended.png",
+          title: "Modular House Extended - 실면적 32평형",
           images: [
-            "https://placehold.co/800x500/666/fff?text=Extended+Main",
-            "https://placehold.co/800x500/ccc/333?text=Extended+Plan",
+            "/assets/images/product2/detail/Extended_detail1.png",
+            "/assets/images/product2/detail/Extended_detail2.png",
           ],
           specs: [
             { label: "규격", value: "12,000mm(W) x 4,600mm(D) x 5,550mm(H)" },
-            { label: "총면적", value: "32평형 (실면적)" },
-            { label: "구조", value: "2층 구조 및 확장형 모듈" },
+            {
+              label: "총면적",
+              value: "10평/15평 (1층 41㎡+다락 9㎡)",
+            },
+            {
+              label: "구조",
+              value:
+                "찬넬 200 x 80 x 7.5 x 11 <br> + 경량철골조(열교차단 폴리아미드 공법 적용)",
+            },
+            {
+              label: "외벽",
+              value: "천연대리석, 세라믹타일, 메탈사이딩, 합성데크",
+            },
+            {
+              label: "인테리어",
+              value: "PHOMI STONE, 천혜토, 동경, 실크벽지, LG필름",
+            },
+            {
+              label: "난방",
+              value: "AL 블럭트레이 온순난방, 귀뚜라미 전기보일러",
+            },
+            { label: "단열", value: "PLR 우레탄페널 + 수성경질우레탄폼" },
+            {
+              label: "창호",
+              value: "유럽식프리미엄 고성능시스템창호-로이 3중 유리",
+            },
+            {
+              label: "조명",
+              value: "LED마그네틱조명, LED라인조명",
+            },
+            { label: "문선/<br>바닥몰딩", value: "인조석(LG HIMACS)" },
+            { label: "가구", value: "신발장, 북박이장" },
             {
               label: "구성",
-              value: "방2, 거실2, 주방, 욕실+화장실, 현관, 테라스",
+              value: "방2,거실2,주방,욕실+화장실,현관,테라스,주차장",
             },
           ],
         },
@@ -237,10 +327,14 @@
       // 3. 이미지 업데이트 함수
       function updateImage() {
         const p = products[currentProductIdx];
-        if (p.images.length > 0) {
+        if (p.images && p.images.length > 0) {
           imgEl.src = p.images[currentImgIdx];
-        } else {
-          imgEl.src = ""; // 이미지 없을 때 처리
+          imgEl.style.display = "block"; // 이미지를 보이게 함
+        }
+        // 이미지가 없을 때 (빈 배열)
+        else {
+          imgEl.src = ""; // 혹시 모를 잔상 제거
+          imgEl.style.display = "none"; // ⭐ 핵심: 엑박이 안 뜨게 아예 숨김
         }
 
         // 인디케이터 활성화 상태 동기화

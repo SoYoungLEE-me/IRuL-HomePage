@@ -1,18 +1,15 @@
-/* =========================================
-         3. Product Hero (Tabs) CSS
-         ========================================= */
 .product-hero {
   position: relative;
   background-color: #222;
-  padding-top: 120px; /* Header 높이 고려 */
+  padding-top: 110px;
   padding-bottom: 60px;
   overflow: hidden;
 }
 .product-hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url("https://placehold.co/1920x600/111/333?text=Blueprint+Background");
-  background-size: cover;
+  background-image: url("../assets/images/background/product_hero.png");
+  background-size: 100%;
   background-position: center;
   opacity: 0.3;
   pointer-events: none;
@@ -22,32 +19,30 @@
   position: relative;
   z-index: 2;
   margin-top: 40px;
-  /* 스크롤 동작 부드럽게 */
   -webkit-overflow-scrolling: touch;
 }
 
-/* --- 커스텀 스크롤바 디자인 (크롬, 사파리 등) --- */
+/*커스텀 스크롤*/
 .product-tab-container::-webkit-scrollbar {
-  height: 4px; /* 스크롤바 높이 (가로 스크롤) */
+  height: 4px;
 }
 .product-tab-container::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05); /* 트랙 배경 (투명하게) */
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 2px;
 }
 .product-tab-container::-webkit-scrollbar-thumb {
-  background: var(--ir-accent-yellow); /* 핸들 색상 (브랜드 컬러) */
+  background: var(--ir-primary-green);
   border-radius: 2px;
   opacity: 0.8;
 }
 .product-tab-container::-webkit-scrollbar-thumb:hover {
-  background: #fff; /* 호버 시 강조 */
+  background: #fff;
 }
 
-/* 탭 리스트 */
 .product-tab-list {
   display: flex;
   justify-content: center;
-  gap: 0; /* 선 연결을 위해 갭 제거 */
+  gap: 0;
 }
 
 .product-tab-item {
@@ -57,63 +52,64 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 200px; /* 고정 너비 */
+  width: 200px;
   position: relative;
-  opacity: 0.5;
-  transition: all 0.3s ease;
 }
 
-.product-tab-item:hover,
-.product-tab-item.active {
+.tab-text {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.tab-thumb {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.product-tab-item:hover .tab-text,
+.product-tab-item:hover .tab-thumb,
+.product-tab-item.active .tab-text,
+.product-tab-item.active .tab-thumb {
   opacity: 1;
 }
 
-/* 탭 텍스트 (위) */
 .tab-text {
   color: #fff;
   font-size: 1rem;
   font-family: var(--ir-font-main);
-  margin-bottom: 15px; /* 선과의 간격 */
+  margin-bottom: 20px;
   text-align: center;
-  height: 40px; /* 두 줄 텍스트 고려 높이 확보 */
+  height: 40px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
 }
 
-/* 중간 가로선 (장식) */
 .tab-line {
   width: 100%;
-  height: 1px;
+  height: 3px;
   background-color: rgba(255, 255, 255, 0.3);
   margin-bottom: 20px;
   position: relative;
 }
 
-/* 활성화 시 선 강조 */
-.product-tab-item.active .tab-line {
-  background-color: #fff;
-  height: 2px;
-}
-
-/* 활성화 시 중앙 포인터 (선 위의 짧은 굵은 선) */
 .product-tab-item.active .tab-line::after {
   content: "";
+  display: block;
   position: absolute;
-  top: -1px;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 40px;
-  height: 4px;
-  background-color: #fff; /* 흰색 강조 */
+
+  width: 70px;
+  height: 100%;
+  background-color: #fff;
 }
 
-/* 탭 썸네일 (아래) */
 .tab-thumb {
-  width: 160px;
-  height: 80px;
+  width: 180px;
+  height: 100px;
   overflow: hidden;
-  /* background: #444; */
   transition: 0.3s;
 }
 .tab-thumb img {
@@ -125,9 +121,6 @@
   transform: scale(1.05);
 }
 
-/* =========================================
-             4. Product Detail CSS
-             ========================================= */
 .product-detail {
   padding: 80px 0 120px;
   background-color: #fff;
@@ -136,12 +129,11 @@
 /* 좌우 그리드 레이아웃 */
 .product-content-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr; /* 왼쪽(이미지)이 좀 더 넓게 */
+  grid-template-columns: 1.3fr 1fr;
   gap: 60px;
   align-items: start;
 }
 
-/* --- Left Column: Title + Images --- */
 .product-left-col {
   display: flex;
   flex-direction: column;
@@ -159,16 +151,13 @@
 
 /* 이미지 슬라이더 영역 */
 .product-slider-wrapper {
+  margin-top: 70px;
   position: relative;
   width: 100%;
 }
 
 .product-slider-frame {
   width: 100%;
-  /* 4:2.5 비율 유지 */
-  aspect-ratio: 4 / 2.5;
-  background-color: #f5f5f5;
-  border-radius: 4px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -183,11 +172,11 @@
 
 /* 인디케이터 (이미지 아래 막대) */
 .product-indicators {
-  margin-top: 15px;
+  margin-top: 60px;
   display: flex;
   justify-content: center;
   gap: 8px;
-  min-height: 4px; /* 공간 확보 */
+  min-height: 4px;
 }
 
 .p-dot {
@@ -199,10 +188,10 @@
 }
 
 .p-dot.active {
-  background-color: #555; /* 활성화 색상 */
+  background-color: #555;
 }
 
-/* --- Right Column: Specs --- */
+/*오른쪽 열*/
 .product-right-col {
   padding-top: 10px; /* 타이틀 높이와 균형 맞추기 위해 */
 }
@@ -236,9 +225,6 @@
   line-height: 1.6;
 }
 
-/* =========================================
-             5. Responsive Design
-             ========================================= */
 @media (max-width: 1024px) {
   .product-tab-item {
     width: 140px;
@@ -253,30 +239,35 @@
 }
 
 @media (max-width: 960px) {
-  /* 태블릿/모바일: 세로 배치 */
   .product-content-grid {
     grid-template-columns: 1fr;
     gap: 50px;
   }
 
   .product-left-col {
-    order: 1; /* 이미지가 위 */
+    order: 1; /* 이미지가 위에 오도록 */
   }
 
   .product-right-col {
-    order: 2; /* 스펙이 아래 */
+    order: 2; /* 스펙이 아래에 오도록*/
   }
 
   /* 탭 메뉴 스크롤 가능하게 */
   .product-tab-container {
     overflow-x: auto;
     margin-left: -20px;
-    margin-right: -20px; /* 화면 꽉 차게 */
-    padding: 0 20px 10px 20px; /* 하단 패딩 추가 (스크롤바 공간) */
+    margin-right: -20px;
+    padding: 0 20px 10px 20px;
   }
   .product-tab-list {
-    width: max-content; /* 내용만큼 늘어나게 */
+    width: max-content;
     padding-bottom: 20px;
+  }
+
+  .product-slider-wrapper {
+    margin-top: 40px;
+    position: relative;
+    width: 100%;
   }
 }
 
