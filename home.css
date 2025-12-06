@@ -240,20 +240,12 @@
 
 /* Left CTA */
 .home-cta-left {
-  background: linear-gradient(
-      to right,
-      rgba(107, 142, 35, 0.85),
-      rgba(107, 142, 35, 0.4)
-    ),
-    url("/assets/images/mainCTA/견적문의.png");
   background-position: center;
   background-size: cover;
 }
 
 /* Right CTA */
 .home-cta-right {
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
-    url("/assets/images/mainCTA/시공현장.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -285,7 +277,6 @@
 
 /* Contact banner */
 .home-footer-top {
-  background: url("/assets/images/contactUs.png") no-repeat center/cover;
   padding: 60px 0;
   text-align: center;
   color: #fff;

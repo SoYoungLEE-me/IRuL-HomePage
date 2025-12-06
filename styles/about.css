@@ -3,9 +3,6 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-
-  background: url("/assets/images/background/회사소개.png") center/cover
-    no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

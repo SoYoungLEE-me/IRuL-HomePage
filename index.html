@@ -148,12 +148,38 @@
     <!-- CTA-->
     <section class="home-cta">
       <div class="ir-container home-cta-grid">
-        <a href="/pages/contact.html" class="home-cta-box home-cta-left">
+        <a
+          href="/pages/contact.html"
+          class="home-cta-box home-cta-left"
+          style="
+            background: linear-gradient(
+                to right,
+                rgba(107, 142, 35, 0.85),
+                rgba(107, 142, 35, 0.4)
+              ),
+              url('/assets/images/mainCTA/견적문의.png');
+            background-size: cover;
+            background-position: center;
+          "
+        >
           <h3>견적 문의하기</h3>
           <p>설계부터 시공까지<br />무엇이든 물어보세요</p>
         </a>
 
-        <a href="/pages/gallery.html" class="home-cta-box home-cta-right">
+        <a
+          href="/pages/gallery.html"
+          class="home-cta-box home-cta-right"
+          style="
+            background: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.3)
+              ),
+              url('/assets/images/mainCTA/시공현장.jpg');
+            background-size: cover;
+            background-position: center;
+          "
+        >
           <h3>시공현장 보기</h3>
           <p>제품의 자세한 모습을<br />사진으로 담았습니다</p>
         </a>
@@ -162,7 +188,12 @@
 
     <!--footer-->
     <footer class="home-footer">
-      <div class="home-footer-top">
+      <div
+        class="home-footer-top"
+        style="
+          background: url('/assets/images/contactUs.png') no-repeat center/cover;
+        "
+      >
         <div class="ir-container home-footer-content">
           <h2 class="home-footer-title">Contact Us</h2>
           <div class="home-footer-info">

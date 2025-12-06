@@ -8,10 +8,9 @@
 .product-hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url("../assets/images/background/product_hero.png");
   background-size: 100%;
   background-position: center;
-  opacity: 0.3;
+  opacity: 0.2;
   pointer-events: none;
 }
 
